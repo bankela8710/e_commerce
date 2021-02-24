@@ -1,0 +1,33 @@
+.kids-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.kids-wrapper .item{
+    width: 49%;
+}
+.kids-wrapper .item .image-wrapper{
+    height: 200px;
+}
+@media(min-width:450px){
+    .kids-wrapper .item .image-wrapper{
+        height: 250px;
+    } 
+}  
+  
+@media(min-width:576px){
+    .kids-wrapper .item{
+        width: 33%;
+    }
+}
+@media(min-width:768px){
+    .kids-wrapper .item{
+        width: 24%;
+    }
+}
+@media(min-width:992px){
+    .kids-wrapper .item .image-wrapper{
+        height: 300px;
+    }
+}

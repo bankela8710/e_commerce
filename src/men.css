@@ -1,0 +1,36 @@
+.men-wrapper{
+    display: flex;
+    justify-content: space-between;
+  
+    flex-wrap: wrap;
+}
+.men-wrapper .item{
+    width: 100%;
+}
+.men-wrapper .link{
+    width: 49%;
+}
+.men-wrapper .link .image-wrapper{
+    height: 200px;
+}
+@media(min-width:450px){
+    .men-wrapper .link .image-wrapper{
+        height: 250px;
+    } 
+}  
+  
+@media(min-width:576px){
+    .men-wrapper .link{
+        width: 33%;
+    }
+}
+@media(min-width:768px){
+    .men-wrapper .link{
+        width: 24%;
+    }
+}
+@media(min-width:992px){
+    .men-wrapper .link .image-wrapper{
+        height: 300px;
+    }
+}

@@ -1,0 +1,185 @@
+/************************************************  HEADER START  ************************************/
+@media(min-width:320px){
+    .social-wrapper{
+      padding: 10px;
+      background-color: black;
+    }
+    .header-social{
+      background-color: black;
+    }
+    .contact{
+      display: flex;
+      justify-content: center;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: white;
+    }
+    .contact div:first-of-type{
+      margin-right: 10px;
+    }
+    .contact div:last-of-type{
+      margin-left: 10px;
+    }
+    .social{
+      font-size: 16px;
+      text-align: center;
+      color: white;
+    }
+    .social svg{
+      margin-right: 5px;
+    }
+    .social svg:last-of-type{
+      margin-right: 0;
+    }
+    .contact svg{
+      margin-right: 5px;
+    }
+    .social-line{
+      border-left: 1px solid gray;
+    }
+  }
+  @media(min-width:768px){
+  .social-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  .contact{
+    display: flex;
+    font-size: 18px;
+  }
+  .contact svg{
+    margin-right: 15px;
+  }
+  .contact div:first-of-type{
+    margin-right: 20px;
+  }
+  .contact div:last-of-type{
+    margin-left: 20px;
+  }
+  .social{
+    font-size: 18px;
+  }
+  .social-line{
+    border-left: 1px solid gray;
+  }
+  .social-wrapper .social svg{
+    margin-right: 25px;
+  }
+  .social-wrapper .social svg:last-of-type{
+    margin-right: 0;
+  }
+  }
+  /*****************************************  HEADER END   *************************************************/
+  
+  
+  
+  /**********************************   HEADER NAV START   **********************************************/
+  .nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  .logo-link{
+    text-decoration: none;
+    color: green;
+    }
+  .nav-links{
+    display: flex;
+  }
+  .nav-links li{
+    list-style: none;
+    border-bottom: none;
+  }
+  .nav-links a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-right: 10px;
+  }
+  .nav-links a:last-of-type{
+    margin-right: 0;
+  }
+  .cart{
+    display: flex;
+  }
+  .cart div{
+    margin-right: 10px;
+  }
+  .cart div:last-of-type{
+    margin-right: 0;
+  }
+  .burger{
+    width: 25px;
+    height: 3px;
+    margin: 3px;
+    background-color: black;
+  }
+  .nav-burger{
+    display: none;
+  }
+  @media(max-width:768px){
+    .cart-wrapper{
+      display: flex;
+      align-items: center;
+    }
+    .cart{
+      margin-right: 10px;
+    }
+    .nav-burger{
+      display: block;
+      cursor: pointer;
+    }
+    .nav-links{
+      position: absolute;
+      padding: 0;
+      background-color: red;
+      top: 54px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 93%;
+      transform: translateX(-1000px);
+      transition: 1s;
+      z-index: 10;
+      padding: 10px;
+    }
+    .nav-wrapper{
+      position: relative;
+    }
+    .nav-active{
+      transform: translateX(0px);
+    }
+    .toggle .line1{
+      transform: rotate(-45deg) translate(-5px,4px);
+    }
+    .toggle .line2{
+      opacity: 0;
+    }
+    .toggle .line3{
+      transform: rotate(45deg) translate(-5px,-4px);
+    }
+    .nav-links a{
+      padding: 10px;
+    }
+    
+  }
+  @media(min-width:768px){
+    .nav-links li{
+      margin-right: 10px;
+    }
+  }
+  @media(min-width:992px){
+    .nav-links li{
+      margin-right: 20px;
+    }
+  }
+  
+  .active-link{
+    border-bottom: 3px solid green;
+  }
+  
+  
+  /**************************************** HEADER NAV END   **********************************************/

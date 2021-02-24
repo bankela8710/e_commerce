@@ -1,0 +1,197 @@
+/**************************************** BEST SELLERES SECTION START *****************************/
+.best-sellers{
+    padding: 20px 0;
+  }
+  .best-sellers-wrapper .item{
+    width: 100%;
+  }
+  .best-sellers-wrapper .item-description .item-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+
+  }
+  
+  .best-sellers-wrapper .best-sellers-description h2{
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .best-sellers-description p{
+    font-size: 12px;
+  }
+  .best-sellers-wrapper .best-sellers-description p:first-of-type{
+    color: green;
+    font-size: 12px;
+    margin: 0%;
+  }
+  
+  
+  @media(min-width:560px){
+    .best-sellers-wrapper{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }  
+    .best-sellers-description{
+      width: 20%;
+    }
+    .home-wrapper{
+      width: 39%;
+    }
+  }
+  @media(min-width:768px){
+    .best-sellers-description{
+      width: 19%;
+    }
+    .home-wrapper{
+      width: 19%;
+    }
+  }
+  /***********************************  BEST SELLERS SECTION END  **************************************/
+  
+  
+  /********************************** SECTION DELIVERY START   *****************************************/
+.delivery-wrapper{
+    text-align: center;
+  }
+  .delivery-wrapper p,h4{
+    margin: 0;
+  }
+  .delivery-wrapper p.delivery-text{
+    font-size: 12px;
+  }
+  .delivery-wrapper h4{
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .delivery-wrapper  svg{
+  font-size: 30px;
+  margin-bottom: 15px;
+  }
+  .delivery-wrapper div:last-of-type p svg{
+    rotate: -45deg;
+  }
+  .delivery-wrapper div{
+    padding: 20px 0;
+    margin-bottom: 10px;
+    background-color: #eeeeee;
+    
+  }
+  
+  @media(min-width:450px){
+    .delivery-wrapper{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .delivery-wrapper div{
+      width: 49%;
+      max-width: 100%;
+    }
+  }
+  @media(min-width:768px){
+    .delivery-wrapper div{
+      width: 24.7%;
+      margin-bottom: 0;
+    }
+  }
+  
+  /********************************** SECTION DELIVERY END   *****************************************/
+  
+  
+  
+  
+  /*********************************** SECTION OFFER START *****************************************/
+  .offer-item{
+    width:300px;
+    height: 300px;
+    background-color:#1f1f27;
+    margin-bottom: 2px;
+    max-width: 100%;
+  }
+  .offer-item:nth-of-type(2){
+    background-color:#46464f;
+  }
+  @media(min-width:450px){
+    .offer-wrapper{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .offer-item{
+      width: 49%;
+    }
+  }
+  @media(min-width:576px){
+    .offer-item{
+      width: 33.33%;
+      margin-bottom: 0%;
+    }
+  }
+  
+  
+  /*********************************** SECTION OFFER END *****************************************/
+  
+  
+  
+  
+  
+  /*********************************** SECTION FEATURED START ************************************/
+  .featured{
+    padding: 20px 0;
+  }
+  .featured-title{
+    margin-bottom: 20px;
+  }
+  .featured-title h2{
+  text-transform: uppercase;
+  margin: 0;
+  }
+  .featured-title p{
+    color: green;
+    margin: 0;
+    font-size: 14px;
+  }
+  .featured-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .featured-wrapper .home-featured-wrapper{
+    width: 49%; 
+  }
+  .featured-wrapper .image-wrapper{
+    height: 200px;
+  }
+  @media(min-width:450px){
+    .featured-wrapper .home-featured-wrapper{
+      width: 32%;
+    }
+  }
+  
+  @media(min-width:768px){
+    .featured-wrapper .home-featured-wrapper{
+      width: 24%;
+    }
+    .featured-wrapper .image-wrapper{
+      height: 300px;
+    }
+    .featured-title{
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .featured{
+      padding: 40px 0;
+    }
+  }
+  @media(min-width:992px){
+    .featured-wrapper .home-featured-wrapper{
+      width: 19%;
+    }
+    .featured{
+      padding: 60px 0 40px 0;
+    }
+  }
+  /*********************************** SECTION FEATURED END ************************************/

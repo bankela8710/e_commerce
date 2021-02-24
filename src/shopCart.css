@@ -1,0 +1,15 @@
+table{
+   width: 100%;
+}
+th{
+   text-align: left;
+}
+table, th, td {
+   border: 1px solid black;
+ }
+
+.shopcart-wrapper .product-img{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}

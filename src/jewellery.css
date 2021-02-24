@@ -1,0 +1,34 @@
+/*********************************** JEWELLERY PAGE START ************************************/
+.jewellery-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.jewellery-wrapper .jewellery-wrapper-item{
+    width: 49%;
+}
+.jewellery-wrapper .item .image-wrapper{
+    height: 200px;
+}
+@media(min-width:450px){
+    .jewellery-wrapper .item .image-wrapper{
+        height: 250px;
+    } 
+}  
+  
+@media(min-width:576px){
+    .jewellery-wrapper .jewellery-wrapper-item{
+        width: 33%;
+    }
+}
+@media(min-width:768px){
+    .jewellery-wrapper .jewellery-wrapper-item{
+        width: 24%;
+    }
+}
+@media(min-width:992px){
+    .jewellery-wrapper .item .image-wrapper{
+        height: 300px;
+    }
+}
+  /*********************************** JEWELLERY PAGE END ************************************/
