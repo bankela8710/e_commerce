@@ -4,7 +4,7 @@ import './accessories.css';
 import {Link} from 'react-router-dom';
 
 const Accessories = (props) => {
-    console.log('accessories object', props)
+   // console.log('accessories object', props)
     return (
         <main>
             <section className="accessories">
@@ -14,9 +14,9 @@ const Accessories = (props) => {
                         {props.accessories.map((item, index) => {
                             return (
                                 <div className="accessories-wrapper-item">
-                                <Link className="link" to={{ pathname: `/singleItem/${item.category}/${item.title}`, item }}>
-                                <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} />
-                                </Link>
+                                <div className="link">
+                                <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} id={item.id} itemDescription={item.description} user={props.user} handleLogout={props.handleLogout}/>
+                                </div>
                                 </div>
                             )
                         })}

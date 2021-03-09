@@ -1,9 +1,12 @@
 import React from 'react';
 import './billing.css';
+import { carts, getCarts } from './cart.services';
 
 
 
 const Billing = () => {
+    const cartItems = getCarts();
+    //console.log(cartItems,'evo ga u billing')
     return (
         <section>
             <div className="container">
@@ -66,21 +69,31 @@ const Billing = () => {
                         <div className="order-container">
                             <div className="your-order-wrapper">
                                 <h4>Product</h4>
-                                <h4>Total</h4>
+                                <h4>Price</h4>
                             </div>
-                            <div className="your-order-wrapper">
-                                <div>
-                                    <p>ime prozivoda<span>x1</span></p>
-                                    <p>ime prozivoda<span>x1</span></p>
-                                </div>
-                                <div>
-                                    <p>$ cena</p>
-                                    <p>$ cena</p>
-                                </div>
-                            </div>
+                            {  cartItems?
+                                cartItems.map((cartItem) => {
+                                    console.log(cartItem,'evo ga item u billing provera za id')
+                                    return (
+                                        <div className="your-order-wrapper">
+                                            <div className="your-order-description">
+                                                <div className="your-order-image">
+                                                    <img src={cartItem.itemImage} />
+                                                </div>
+                                                <div className="your-order-title">
+                                                <p>{cartItem.itemTitle}</p>
+                                                </div>
+                                            </div>
+                                            <div className="your-order-price">
+                                                <p>{cartItem.itemPrice}$</p>
+                                            </div>
+                                        </div>
+                                    )
+                                }):''
+                            }
                             <div className="your-order-wrapper">
                                 <h3>Total</h3>
-                                <p>ukupna cena</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>

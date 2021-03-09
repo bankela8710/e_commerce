@@ -4,11 +4,15 @@ import { FaHeart } from 'react-icons/fa'
 import { FaRetweet } from 'react-icons/fa';
 import './singleItem.css';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ShopCart from './shopCart';
+import {Link} from 'react-router-dom';
+import {addCart} from './cart.services';
 
 
 function SingleItem(props){
-    const item = props.location.item;
-   // console.log(item)
+    const item = props.location.props;
+    console.log(item)
 
 
     const [cart, setCart] = useState([]);
@@ -17,6 +21,7 @@ function SingleItem(props){
 const addToCart =(item)=>{
     console.log('u korpi sam ',item);
 setCart([...cart,item]);
+addCart(item);
 }
 
     return (
@@ -30,26 +35,31 @@ setCart([...cart,item]);
                 </div>
                 <div className="single-item-wrapper">
                     <div className="single-item-image">
-                        <img src={item?.image} />
+                        <img src={item?.itemImage} />
                     </div>
                     <div className="single-item-content">
-                        <h3 className="single-item-title">{item?.title}</h3>
-                        <p className="single-item-price">$250.00</p>
+                        <h3 className="single-item-title">{item?.itemTitle}</h3>
+                        <p className="single-item-price">{item?.itemPrice}</p>
                         <p className="single-item-description">
-                            {item?.description}
+                            {item?.itemDescription}
                         </p>
                         <div className="single-item-quantity">
-                            <p><span>-</span>0<span>+</span></p>
+                            <p><span>-</span>0<span onClick={()=>addToCart(item)}>+</span></p>
                         </div>
                         <div className="single-item-basket">
-                            <div ><FaShoppingCart onClick={()=>addToCart(item)}/>add to cart</div>
+                            <div onClick={()=>addToCart(item)} ><FaShoppingCart />add to cart</div>
                             <div><FaHeart /></div>
                             <div><FaRetweet /></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <Link to={{ pathname: `/shopCart`, cart }} >
+
+            </Link>
+            
         </section>
+        
     )
 
 

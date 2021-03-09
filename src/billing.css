@@ -39,23 +39,25 @@
     justify-content: space-between;
     flex-wrap: wrap;
     border-bottom: 1px solid grey;
+    align-items: center;
 }
-.your-order-wrapper h4{
-    width: 49%;
+.your-order-description{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.your-order-wrapper h4:last-of-type{
+.your-order-image{
+    width: 30%;
+    height: 60px;
+}
+
+.your-order-title{
+    width: 65%;
+}
+
+.your-order-wrapper .your-order-price {
+    width: 34%;
     text-align: right;
 }
-.your-order-wrapper div{
-    width: 49%;
-}
-.your-order-wrapper:nth-of-type(2) div:last-of-type p {
-    width: 100%;
-    text-align: right;
-}
-.your-order-wrapper h3{
-    width: 49%;
-}
-.your-order-wrapper div:last-of-type p{
-    width: 49%;
-}
+

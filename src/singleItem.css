@@ -27,6 +27,7 @@
     text-transform: uppercase;
     border: 1px solid green;
     border-radius: 5px;
+    cursor: pointer;
 }
 .single-item-basket div:first-of-type svg{
 margin-right: 10px;     

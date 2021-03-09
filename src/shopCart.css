@@ -7,9 +7,50 @@ th{
 table, th, td {
    border: 1px solid black;
  }
-
+tr{
+   padding: 10px;
+}
 .shopcart-wrapper .product-img{
    display: flex;
    justify-content: space-around;
    align-items: center;
 }
+.product-img img{
+   width: 60px;
+   height: 100px;
+}
+.product-img div:first-of-type{
+   width: 30%;
+   padding: 10px;
+}
+.product-img div:last-of-type{
+   width: 70%;
+   padding: 10px;
+}
+.cartItem-price{
+   text-align: right;
+   padding: 0 5px 0 0 ;
+}
+.continue-shopping,
+.remove{
+   cursor: pointer;
+}
+
+.continue-shopping{
+   padding: 10px;
+   background-color: green;
+   border: 1px solid green;
+   border-radius: 5px;
+   margin-top: 10px;
+   text-transform: uppercase;
+   color: white;
+   font-weight: 800;
+}
+.remove {
+   border: 1px solid green;
+   border-radius: 5px;
+   padding: 5px 0px;
+   color: white;
+   background-color: green;
+  }
+  

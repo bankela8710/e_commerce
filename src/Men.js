@@ -5,7 +5,7 @@ import Item from './item';
 import { Link } from 'react-router-dom';
 
 const Men = (props) => {
-    console.log('mens object', props);
+   // console.log('mens object', props);
     return (
         <main>
             <section className="men">
@@ -14,9 +14,9 @@ const Men = (props) => {
                     <div className="men-wrapper">
                         {props.mens.map((item, index) => {
                             return (
-                                <Link className="link" to={{ pathname: `/singleItem/${item.category}/${item.title}`, item }}>
-                                    <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} />
-                                </Link>
+                                <div className="link">
+                                    <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} id={item.id} itemDescription={item.description} user={props.user} handleLogout={props.handleLogout}/>
+                                </div>
                             )
                         })}
                     </div>

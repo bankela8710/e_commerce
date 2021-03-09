@@ -1,0 +1,48 @@
+.cookies-wrapper{
+    position: fixed;
+   top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color:gray;
+    color: white;
+    z-index: 10;
+    width: 100%;
+   
+   border-radius: 5px;
+    
+  }
+  .cookies-button{
+    display: flex;
+    flex-direction: column;
+  }
+  .cookies-button button{
+    color: green;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .cookies-button button:first-of-type{
+    margin-bottom: 10px;
+  }
+  .hide-cookies{
+   display: none;
+  }
+
+@media(min-width:450px){
+  .cookies-wrapper{
+    width: 80%;
+    left: 6%;
+    padding: 20px;
+  }
+
+}
+@media(min-width:768px){
+  .cookies-wrapper{
+    width: 60%;
+    left: 20%;
+  }
+}

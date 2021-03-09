@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom';
 
 
 const Home = (props) => {
-  console.log('svi prozivodi u home page', props)
+  //console.log('svi prozivodi u home page', props)
   return (
     <main>
       <section><Slider /></section>
@@ -30,9 +30,9 @@ const Home = (props) => {
               if (index < 4) {
                 return (
                   <article className="home-wrapper">
-                  <Link className="link" to={{ pathname: `/singleItem/${item.category}/${item.title}`, item }}>
-                  <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} />
-                  </Link>
+                  
+                  <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} itemDescription={item.description} id={item.id} user={props.user} handleLogout={props.handleLogout}/>
+                  
                   </article>
                 )
               }
@@ -62,9 +62,9 @@ const Home = (props) => {
               if (index >= 10) {
                 return (
                   <div className="home-featured-wrapper">
-                  <Link className="link" to={{ pathname: `/singleItem/${item.category}/${item.title}`, item }}>
-                  <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} />
-                  </Link>
+  
+                  <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} id={item.id} itemDescription={item.description} user={props.user} handleLogout={props.handleLogout}/>
+                  
                   </div>
                 )
               }

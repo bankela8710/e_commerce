@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 
 const Jewellery = (props) => {
-    console.log('jewerly props', props)
+   // console.log('jewerly props', props)
     // useEffect(()=>{
     // fetchItems();
     // },[]);
@@ -50,9 +50,9 @@ const Jewellery = (props) => {
                             console.log('evo ga ovde napokon', item);
                             return (
                                 <div className="jewellery-wrapper-item">
-                                <Link className="link" to={{ pathname: `/singleItem/${item.category}/${item.title}`, item }}>
-                                    <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} />
-                                </Link>
+                                <div className="link">
+                                    <Item itemImage={item.image} itemTitle={item.title} itemPrice={item.price} id={item.id} itemDescription={item.description} user={props.user} handleLogout={props.handleLogout}/>
+                                </div>
                                 </div>
                             )
 

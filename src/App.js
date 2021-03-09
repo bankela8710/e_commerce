@@ -19,18 +19,104 @@ import ShopCart from './shopCart';
 import Billing from './billing';
 import React from 'react';
 import SingleItem from './singleItem';
+import Cookies from './cookies';
+import favoriteItem from './favoriteItem';
+import fire from './fire';
+import Login from './login';
+import {getCarts} from './cart.services';
+
 
 
 function App() {
   useEffect(() => {
-    fetchDataItem()
+    fetchDataItem();
+    authListener();
   }, []);
 
   const [menClothing, setMenClothing] = useState([])
   const [electronic, setElectronic] = useState([])
   const [womenClothing, setWomenClothing] = useState([])
   const [jewelery, setJewerly] = useState([])
-  const [allProducts,setAllProducts]=useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [disableCookies, setUserToStorage] = useState(true);
+
+  //for login and sign in
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [hasAccount, setHasAccount] = useState(false);
+
+  //functions for clear inputs ( email and password ) and clear errors
+  const clearInputs = () => {
+    setEmail('');
+    setPassword('');
+  }
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
+  }
+
+
+  //function for login
+  const handleLogin = () => {
+    clearErrors();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch (err.code) {
+          case "auth/invalid-email":
+          case "auth/user-disabled":
+          case "auth/user-not-found":
+            setEmailError(err.message);
+            break;
+          case "auth/wrong-password":
+            setPasswordError(err.message);
+            break;
+        }
+      })
+  }
+
+  //function for signup
+  const handleSignup = () => {
+    clearErrors();
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+          case "auth/invalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      })
+  }
+  //function for logout
+  const handleLogout = () => {
+    fire.auth().signOut();
+   
+  }
+
+
+  const authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        clearInputs();
+        setUser(user);
+      } else {
+        setUser('');
+        getCarts()
+      }
+    })
+  }
+
+
 
 
   const fetchDataItem = async () => {
@@ -38,6 +124,7 @@ function App() {
     const productItems = await dataItems.json();
     console.log(productItems, 'sviproizvodi');
     setAllProducts(productItems);
+    checkIfUserExistInStorage();
     return productItems.map(item => {
       //getCategory(item.category)
       return filterProductsByCategory(item.category, productItems)
@@ -45,7 +132,32 @@ function App() {
     })
     //productItems.map(item=> getCategories(item.category))
     //console.log('categoryName', categoryName)
+
   }
+
+  const checkIfUserExistInStorage = () => {
+    if (localStorage.getItem('userName') === 'Accepted cookies') {
+      // console.log('imamo ga u storage');
+      return setUserToStorage(true);
+    } else {
+      return setUserToStorage(false);
+    }
+  }
+  const handleModalEvents = (event) => {
+    const modalWrapper = document.querySelector('.cookies-wrapper');
+    console.log('modal event value', event.target.innerText)
+    if (event.target.innerText === 'Slazem se') {
+      localStorage.setItem('userName', 'Accepted cookies');
+      modalWrapper.classList.add('hide-cookies');
+    } else {
+      // zatvoriti modal i ne snimamo user-a 
+      modalWrapper.classList.add('hide-cookies');
+    }
+
+  }
+
+
+
 
   const filterProductsByCategory = (category, products) => {
     console.log('category name', category);
@@ -56,7 +168,7 @@ function App() {
         const womensClothing = products.filter(productItem => productItem.category === category);
         console.log('filtered result', womensClothing);
         setWomenClothing(womensClothing);
-       
+
         break;
       case 'jewelery':
         // code block
@@ -94,17 +206,33 @@ function App() {
       <Router>
         <header className="">
           <div className="container">
-            <Nav />
+            <Nav user={user}  handleLogout={handleLogout}/>
+
             <Switch>
-              <Route path="/shopCart" component={ShopCart} />
+              <Route path="/login" component={() =>
+                <Login
+                  email={email}
+                  setEmail={setEmail}
+                  password={password}
+                  setPassword={setPassword}
+                  handleLogin={handleLogin}
+                  handleSignup={handleSignup}
+                  hasAccount={hasAccount}
+                  setHasAccount={setHasAccount}
+                  emailErorr={emailError}
+                  passwordError={passwordError}
+                 
+                />} />
+              <Route path="/favorite" component={favoriteItem} />
+              <Route path="/shopCart" component={() => <ShopCart />} />
               <Route path="/singleItem" component={SingleItem} />
               <Route path="/billing" component={Billing} />
-              <Route path="/women" component={()=><Women womens={womenClothing} />} />
-              <Route path="/men" component={()=><Men mens={menClothing} />} />
-              <Route path="/jewellery"  component={() => <Jewellery jewelerys={jewelery} />} />
-              <Route path="/accessories" component={()=><Accessories accessories={electronic} />} />
-              <Route path="/" exact component={()=><Home home={allProducts} />} />
-             
+              <Route path="/women" component={() => <Women womens={womenClothing} user={user}  handleLogout={handleLogout}/>} />
+              <Route path="/men" component={() => <Men mens={menClothing} user={user}  handleLogout={handleLogout}/>} />
+              <Route path="/jewellery" component={() => <Jewellery jewelerys={jewelery} user={user}  handleLogout={handleLogout}/>} />
+              <Route path="/accessories" component={() => <Accessories accessories={electronic} user={user}  handleLogout={handleLogout}/>} />
+              <Route path="/" exact component={() => <Home home={allProducts} user={user}  handleLogout={handleLogout} />} />
+
             </Switch>
           </div>
         </header>
@@ -164,10 +292,11 @@ function App() {
         </section>
       </main> */}
       <main>
-       
+
       </main>
       <footer>
         <Footer />
+        {!disableCookies ? <Cookies handleModalClick={(event) => handleModalEvents(event)} /> : null}
       </footer>
     </div>
   );
